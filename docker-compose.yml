@@ -16,19 +16,19 @@ services:
       - fifa-mysql-data:/var/lib/mysql
     restart: unless-stopped
 
-    fifa-api-runner:
-      build:
-        context: ./fifa-api-runner
-      container_name: fifa-api-runner
-      environment:
-        RUNNER_TOKEN: ${RUNNER_TOKEN}
-      depends_on:
-        - fifa-mysql
-      restart: unless-stopped
-      deploy:
-        resources:
-          limits:
-            memory: 2g
+  fifa-api-runner:
+    build:
+      context: ./fifa-api-runner
+    container_name: fifa-api-runner
+    environment:
+      RUNNER_TOKEN: ${RUNNER_TOKEN}
+    depends_on:
+      - fifa-mysql
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          memory: 2g
 
 volumes:
   fifa-mysql-data:
