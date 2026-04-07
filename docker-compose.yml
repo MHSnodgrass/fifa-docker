@@ -1,0 +1,16 @@
+services:
+  fifa-mysql:
+    image: mysql:8.0
+    container_name: fifa-mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    ports:
+      - "3306:3306"
+    volumes:
+      - fifa-mysql-data:/var/lib/mysql
+    restart: unless-stopped
+
+volumes:
+  fifa-mysql-data:
