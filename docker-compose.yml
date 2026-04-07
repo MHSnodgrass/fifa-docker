@@ -8,6 +8,10 @@ services:
       MYSQL_PASSWORD: ${MYSQL_PASSWORD}
     ports:
       - "3306:3306"
+    deploy:
+      resources:
+        limits:
+          memory: 2g
     volumes:
       - fifa-mysql-data:/var/lib/mysql
     restart: unless-stopped
